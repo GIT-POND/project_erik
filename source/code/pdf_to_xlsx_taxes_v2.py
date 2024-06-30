@@ -15,8 +15,8 @@ def has_numbers(inputString):
     return any(char.isdigit() for char in inputString)
 
 if __name__ == "__main__":
-    input_folder = "C:/Users/tanoo/OneDrive/Desktop/project_erik/insert_woodforest_pdfs_here/" # Folder containing PDF files
-    output_excel_path = "C:/Users/tanoo/OneDrive/Desktop/project_erik/raw_output.csv"  # Desired output Excel file path
+    input_folder = "C:/Users/tanoo/OneDrive/Desktop/project_erik-1/source/insert_woodforest_pdfs_here/" # Folder containing PDF files
+    output_excel_path = "C:/Users/tanoo/OneDrive/Desktop/project_erik-1/source/raw_output.csv"  # Desired output Excel file path
 
     if not os.path.exists(input_folder):
         print(f"Folder {input_folder} does not exist.")
