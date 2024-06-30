@@ -16,7 +16,7 @@ from nltk.corpus import wordnet
 import requests
 import pandas as pd
 
-API_KEY = 'U9Sr2bEgWkhPSBstOn2Uhr_zrgUQTPDj2Q3SWlwVnKTg12QFW_wUHFh5S6Mp4hm1OUCAvTPIEdfQFcb8kSqj7n59J1thMOH2RXFkKAgeCcxnZj12N9WBxnTytHqAZnYx'  # Replace this with your Yelp API key
+API_KEY = 'your_key'  # Replace this with your Yelp API key
 API_HOST = 'https://api.yelp.com'
 SEARCH_PATH = '/v3/businesses/search'
 SEARCH_LIMIT = 50  # Maximum number of results per request
