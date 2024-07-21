@@ -66,4 +66,4 @@ def main():
         df = pd.DataFrame(final_lines, columns=columns)
         
         df.to_csv(output_excel_path, index=False)
-        print(f"Combined data has been saved to {output_excel_path}")
+        # print(f"\n\nCompiled PDF data written to: {output_excel_path}\n\n")

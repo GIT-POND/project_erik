@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 from categorize_csv.helpers import getFileDir, getOutputPath, format_string, format_strip_prefix_postfix
-
+from misc.main import print_loading_bar
 
 # Load keyword files for each category
 def load_keywords(file_name):
@@ -36,7 +36,6 @@ def find_pattern(description, keyword):
 
 def categorize_description(description):
     description = format_string(format_strip_prefix_postfix(description))
-    print('::> ',description)
     for category, words in keywords.items():
         for word in words:
             if find_pattern(description, word):
@@ -54,10 +53,17 @@ def main():
     df = df[df['Credits'].isna()]
 
     # Categorize the descriptions
-    df['Category'] = df['Description'].apply(categorize_description)
+    total = len(df)
+    df['Category'] = None
 
+    for i, idx in enumerate(df.index):
+        try:
+            df.at[idx,'Category'] = categorize_description(df.at[idx,'Description'])
+            print_loading_bar(i + 1, total, prefix='Categorizing:', suffix='Complete', length=50)
+        except:
+            print('')
     # Write the output to a new CSV file
 
     df.to_csv(output_file, index=False)
 
-    print(f"Categorized CSV file has been saved to {output_file}")
+    print(f"\n\nCategorized data written to: {output_file}\n\n")
