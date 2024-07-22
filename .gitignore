@@ -5,6 +5,10 @@ __pycache__/
 
 # C extensions
 *.so
+*.pdf
+/source/*.csv
+/source/output_files/*.csv
+/source/upload_files/*.csv
 
 # Distribution / packaging
 .Python
