@@ -40,7 +40,6 @@ def main():
         # Loop through all PDF files in the input folder
         for file_name in os.listdir(input_folder):
             if file_name.endswith(".pdf"):
-                print('file name:',file_name)
                 file_path = os.path.join(input_folder, file_name)
                 lines = read_pdf(file_path)
                 indices = [i for i, x in enumerate(lines) if (x == "Transactions " or "TW100T01282307030700-30" in x or "Transactions (continued)" in x)]
@@ -66,6 +65,5 @@ def main():
         columns = ['Date', 'Credits', 'Debits', 'Balance', 'Description']
         df = pd.DataFrame(final_lines, columns=columns)
         
-        print('lines:',final_lines)
         df.to_csv(output_excel_path, index=False)
         # print(f"\n\nCompiled PDF data written to: {output_excel_path}\n\n")

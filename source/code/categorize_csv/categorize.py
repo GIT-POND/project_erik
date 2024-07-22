@@ -67,7 +67,6 @@ def main():
 
     # Read the input CSV file
     df = pd.read_csv(input_file)
-    print('df length:',len(df))
 
     # Filter out rows with a value in the "Credit" column
     df = df[df['Credits'].isna()]
@@ -88,12 +87,12 @@ def main():
     category_totals = df.groupby('Category')['Debits'].sum().reset_index()
 
     totals_row = pd.DataFrame({
-        'Date': '----',
+        'Date': '',
         'Credits': category_totals['Category'] ,
         'Debits': ['Total'] * len(category_totals),
         'Balance': category_totals['Debits'],
         'Description': '',
-        'Category': '----'
+        'Category': ''
     })
 
     # Write the output to a new CSV file
@@ -103,4 +102,4 @@ def main():
     df.to_csv(output_file, index=False)
     final_df.to_csv(output_totals, index=False)
 
-    print(f"\n\nCategorized data written to: {output_file}\n\n")
+    # print(f"\n\nCategorized data written to: {output_file}\n\n")
